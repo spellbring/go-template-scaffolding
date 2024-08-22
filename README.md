@@ -138,7 +138,5 @@ Example usage:
 ````
  ./template-go-cli -a mrch -m template -d  ./template1 
 ````
-Now you can use this project as possible in another folder.
-
 
 Enjoy :)
