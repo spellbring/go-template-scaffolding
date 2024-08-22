@@ -1,20 +1,25 @@
-# Golang template scaffolding
+# Go template scaffolding
 
 ### Sumary
 This project simple scaffolding for create templates of golang project
 
-### Supported GCP Services
+### Technologies
+- Go v1.21.6
+- Cobra v1.8.1
+
+
+### Template Supported GCP Services
 - Pub/Sub
 - Firestore
 
-### Supported Technologies
+### Template Supported Technologies
 - Redis
 - Gorilla Mux
 - Logrus
 - Postgres
 - Kustomize K8S
 
-### Features
+### Template Features
 - Uses clean architecture 
 - Bootstrap initializer
 - You can add or remove functionalities, depending your requirements
