@@ -1,0 +1,10 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ${PROJECT_NAME}
+spec:
+  template:
+    spec:
+      serviceAccountName: ${WORKLOAD_IDENTITY_TEST}
+      containers:
+        - name: ${PROJECT_NAME}

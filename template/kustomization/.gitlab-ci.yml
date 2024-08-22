@@ -1,0 +1,17 @@
+include:
+  - project: 'rtl/merchandise-ti-corp/product/product-catalog/configuration/template-cicd'
+    file: 'dev/golang/kubernetes-autopilot.yml'
+    ref: 'feature/functional-test-allure'
+
+
+stages:
+  - test
+  - security
+  - build
+  - deploy
+  - update-vars
+  - rollback_deploy
+  - teardown
+  - veracode
+  - trigger-deploy
+

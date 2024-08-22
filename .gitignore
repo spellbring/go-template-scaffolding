@@ -1,0 +1,26 @@
+*.dll
+*.so
+*.dylib
+
+*.test
+*.out
+go.work
+
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+.vscode/launch.json
+!.vscode/extensions.json
+!.vscode/*.code-snippets
+
+# Local History for Visual Studio Code
+.history/
+
+# Built Visual Studio Code Extensions
+*.vsix
+
+.cover.out
+.DS_Store
+.env
+coverage.out
+.idea

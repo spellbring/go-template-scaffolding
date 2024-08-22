@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ${PROJECT_NAME}
+spec:
+  selector:
+    matchLabels:
+      app: ${PROJECT_NAME}
+  template:
+    metadata:
+      annotations:
+        cluster-autoscaler.kubernetes.io/safe-to-evict: "true"
+      labels:
+        app: ${PROJECT_NAME}
+    spec:
+      containers:
+      - image: foo/bar
+        name: ${PROJECT_NAME}
+        ports:
+        - containerPort: 8080
+          name: http
+          protocol: TCP
+        envFrom:
+          - configMapRef:
+              name: ${PROJECT_NAME}
+        env:
+        - name: CI_JOB_ID
+          value: "${CI_JOB_ID}"
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 8080
+          initialDelaySeconds: 10
+          periodSeconds: 5
+          failureThreshold: 8
+        startupProbe:
+          httpGet:
+            path: /health
+            port: 8080
+          failureThreshold: 8
+          periodSeconds: 5

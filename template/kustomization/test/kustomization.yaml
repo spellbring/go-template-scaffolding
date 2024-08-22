@@ -1,0 +1,25 @@
+configMapGenerator:
+  - name: ${PROJECT_NAME}
+    envs:
+      - "env"
+    options:
+      disableNameSuffixHash: true
+
+namespace: ${K8S_NAMESPACE}
+
+bases:
+  - ../base
+
+patchesStrategicMerge:
+  - app-container-config.yaml
+  - workload-identity.yaml
+
+resources:
+  - autoscaling.yaml
+  - ingress.yaml
+
+images:
+  - name: foo/bar
+    newName: ${GLOBAL_GOOGLE_REGISTRY_HOSTNAME}/${GCP_REGISTRY_PROJECT_ID_TEST}/${CI_PROJECT_NAME}/${CI_COMMIT_REF_SLUG}
+    newTag: "${CI_COMMIT_SHORT_SHA}"
+
